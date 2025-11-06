@@ -2,6 +2,7 @@ package com.lepique.api_rest_echo.models.DTO.Course;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lepique.api_rest_echo.domain.Grade.GradeEntity;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @EqualsAndHashCode @ToString
 public class CourseDTO {
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     @JsonProperty("ID_COURSE")
     private Long id;
 
@@ -38,5 +40,6 @@ public class CourseDTO {
     private Long idGrade;
 
     @JsonProperty("GRADE")
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private String Grade;
 }

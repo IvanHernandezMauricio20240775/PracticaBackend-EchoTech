@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lepique.api_rest_echo.domain.Course.CourseEntity;
 import com.lepique.api_rest_echo.domain.Teacher.TeacherEntity;
 import com.lepique.api_rest_echo.models.DTO.Course.CourseDTO;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -20,6 +21,7 @@ import lombok.ToString;
 public class CourseTeacherDTO {
 
     @JsonProperty("IDCOURSE_TEACHER")
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private Long idCourseTeacher;
 
     @JsonProperty("ID_COURSE")
@@ -32,5 +34,6 @@ public class CourseTeacherDTO {
     private  String teacherCode;
 
     @JsonProperty("NAMECOURSE")
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private String courseName;
 }

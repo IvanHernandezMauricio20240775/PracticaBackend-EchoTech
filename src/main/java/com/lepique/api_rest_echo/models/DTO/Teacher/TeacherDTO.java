@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lepique.api_rest_echo.domain.Course.CourseEntity;
 import com.lepique.api_rest_echo.domain.CourseTeacher.CourseTeacherEntity;
 import com.lepique.api_rest_echo.repository.Teacher.TeacherOnCreate;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
@@ -48,6 +49,7 @@ public class TeacherDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date birthday;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     @JsonProperty("ASSIGNED_COURSE")
     private List<String> assignedCourseNames;
 }

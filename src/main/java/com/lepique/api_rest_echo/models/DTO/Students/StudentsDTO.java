@@ -3,6 +3,7 @@ package com.lepique.api_rest_echo.models.DTO.Students;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.lepique.api_rest_echo.repository.Students.StudentsOnCreate;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -34,6 +35,7 @@ public class StudentsDTO {
     @NotNull(message = "El ID del grado al que pertenece el estudiante no debe de ir nulo")
     private Long idGrade;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     @JsonProperty("GRADE")
     private String grade;
 
