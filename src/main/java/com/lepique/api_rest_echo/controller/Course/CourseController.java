@@ -56,6 +56,8 @@ public class CourseController {
         }
     }
 
+    //4.2.Implementar un endpoint para consultar todos los cursos impartidos por un profesor
+    //específico.
     @Transactional(readOnly = true)
     @GetMapping("/GetCourseByTeacherCode/{TeacherCode}")
     public ResponseEntity<ApiResponse<List<CourseDTO>>> getAllCourseByTeacherCode(

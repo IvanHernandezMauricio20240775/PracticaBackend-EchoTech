@@ -40,6 +40,7 @@ public class InscriptionController {
         }
     }
 
+    //2.2.Crear un endpoint para listar todos los estudiantes inscritos en un curso específico.
     @GetMapping("/GetStudentsByCourse/{ID_Course}")
     public ResponseEntity<ApiResponse<List<InscriptionDTO>>> GetStudentsByCourse(
             @PathVariable("ID_Course") Long ID_Course){
@@ -53,6 +54,8 @@ public class InscriptionController {
         }
     }
 
+    //3.2.Implementar un endpoint que permita listar las calificaciones de un estudiante en todos
+    //los cursos en los que esté inscrito.
     @Transactional(readOnly = true)
     @GetMapping("/GetScoreByStudent/{Code_Student}")
     public ResponseEntity<ApiResponse<List<ScoreByCourseDTO>>> getScoreByStudentCode(
@@ -67,6 +70,8 @@ public class InscriptionController {
         }
     }
 
+    //6.1.Implementar un endpoint para obtener el promedio de calificaciones de un estudiante
+    //en todos sus cursos.
     @Transactional(readOnly = true)
     @GetMapping("/GetStudentAverageScore/{StudentCode}")
     public ResponseEntity<ApiResponse<BigDecimal>> getStudentAverageScore(
@@ -93,6 +98,8 @@ public class InscriptionController {
         }
     }
 
+    //6.2.Opcional: Añadir un endpoint que devuelva el promedio de calificaciones de todos los
+    //estudiantes en un curso específico.
     @Transactional(readOnly = true)
     @GetMapping("/GetAverageScoreByCourse/{Course_ID}")
     public ResponseEntity<ApiResponse<BigDecimal>> getAverageScoreByCourse(
@@ -121,6 +128,8 @@ public class InscriptionController {
         }
     }
 
+    //2.1.Implementar endpoints para que los estudiantes puedan inscribirse y desinscribirse de
+    //cursos.
     @PostMapping("/InscribeStudent")
     public ResponseEntity<ApiResponse<InscriptionDTO>> createInscription(
             @Validated(InscriptionOnCreate.class) @RequestBody InscriptionDTO request
@@ -148,6 +157,8 @@ public class InscriptionController {
         }
     }
 
+    //3.1.Crear endpoints para registrar y actualizar calificaciones de los estudiantes en cada
+    //curso.
     @PatchMapping("/UpdateScore/{InscriptionID}")
     public ResponseEntity<ApiResponse<InscriptionDTO>> updateScore(
             @PathVariable("InscriptionID") Long InscriptionID,
@@ -169,6 +180,8 @@ public class InscriptionController {
         }
     }
 
+    //2.1.Implementar endpoints para que los estudiantes puedan inscribirse y desinscribirse de
+    //cursos.
     @DeleteMapping("/UnsubscribeTheCourse/{ID_Inscription}")
     public ResponseEntity<ApiResponse<Void>> unsubscribeTheCourse(
             @PathVariable("ID_Inscription") Long ID_Inscription) {

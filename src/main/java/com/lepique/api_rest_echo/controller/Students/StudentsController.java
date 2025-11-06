@@ -22,9 +22,13 @@ import java.util.List;
 @Slf4j
 public class StudentsController {
 
+    //1. Operaciones CRUD para Estudiantes:
     @Autowired
     private StudentsService accessStudentService;
 
+    //1.1.Crear endpoints que permitan crear, leer, actualizar y eliminar estudiantes.
+    //1.2.Cada estudiante debe incluir información sobre su nombre, edad y grado al que
+    //pertenece.
     @Transactional(readOnly = true)
     @GetMapping("/GetAllStudents")
     public ResponseEntity<ApiResponse<List<StudentsDTO>>> getAllStudents() {
